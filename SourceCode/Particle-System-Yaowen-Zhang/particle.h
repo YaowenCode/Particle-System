@@ -2,10 +2,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 #include <random>
+#include <math.h>
 
 #ifndef PARTICLE_H
 #define PARTICLE_H
 #define random(a, b) (rand()%(b - a + 1) + a)
+#define PI 3.14159265
 
 extern sf::RenderWindow window;
 
@@ -20,8 +22,15 @@ private:
 	sf::Vector2f size;
 	sf::RectangleShape shape;
 	sf::Time lifetime;
+	sf::Time easingtime;
+	int id;
 	float angle;
 	float speed;
+	float rotation;
+	float t;
+	float d;
+	float b;
+	float c;
 	ParticleSystem* pointToSystem;
 	void reset();
 public:

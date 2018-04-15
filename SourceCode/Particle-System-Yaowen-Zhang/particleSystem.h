@@ -13,17 +13,17 @@ class ParticleSystem
 {
 private:
 	std::vector<Particle*> particles;
-	std::vector<Particle*> deadParticles;
 	int activeParticleNum;
 	int systemID;
 	sf::Vector2f emitterPos;
 	sf::Texture* pTexture;
 	sf::Vector2f initialSize;
 	sf::Vector2i initialAngleRange;
-	float initialSpeed;
+	int initialSpeed;
+	int initialParticles;
 	float particleLifeTime;
 public:
-	ParticleSystem(int id, sf::Texture* pTex, sf::Vector2f pos, sf::Vector2f size, sf::Vector2i anglerange, float speed, float lifetime);
+	ParticleSystem(int id, sf::Texture* pTex, sf::Vector2f pos, sf::Vector2f size, sf::Vector2i anglerange, int particlenum, int speed, float lifetime);
 	~ParticleSystem();
 	int getActiveParticleNum();
 	int getSystemID();
@@ -31,9 +31,10 @@ public:
 	sf::Vector2f getInitialSize();
 	sf::Texture* getTexture();
 	sf::Vector2i getInitialAngleRange();
-	float getInitialSpeed();
+	int getInitialSpeed();
 	float getParticleLifeTime();
 	void addParticles(int num);
+	void removeParticles(int num);
 	void update(sf::Time dt);
 	void draw();
 };
