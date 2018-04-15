@@ -44,7 +44,7 @@ void Particle::update(sf::Time dt)
 		c = 0.001;
 		t /= d / 2;
 		if (t < 1) rotation = c / 2 * t*t*t + b;
-		t--;
+		t -= 2;
 		rotation = c / 2 * (t*t*t + 2) + b;
 		shape.setRotation(rotation);
 		easingtime -= dt;
